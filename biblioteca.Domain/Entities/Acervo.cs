@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GerenciadorBiblioteca.Domain.Entities
 {
-    public class Biblioteca
+    public class Acervo
     {
         public List<Livros> ListaDeLivros { get; private set; }
         public List<Usuario> Usuarios { get; private set; }
 
-        public Biblioteca()
+        public Acervo()
         {
             ListaDeLivros = new List<Livros>();
             Usuarios = new List<Usuario>();

@@ -1,4 +1,5 @@
-﻿using GerenciadorBiblioteca.Domain.Entities;
+﻿using Biblioteca;
+using GerenciadorBiblioteca.Domain.Entities;
 using GerenciadorBiblioteca.Domain.Exceptions;
 
 Livros l = new Livros("O Senhor dos Anéis", "J.R.R. Tolkien", "123456789");
@@ -21,7 +22,7 @@ LivroDigital ld = new LivroDigital("O Código Da Vinci", "Dan Brown", "444555666
 ld.MostrarDetalhes();
 
 // Cria biblioteca, livro e usuario
-Biblioteca biblioteca = new Biblioteca();
+Acervo biblioteca = new Acervo();
 LivroFisico livro = new LivroFisico("O Hobbit", "Tolkien", "111", 310, "Prateleira A3");
 Usuario usuario = new Usuario("João", "joao@email.com", "123.456.789-00");
 
@@ -44,5 +45,8 @@ catch (LivroIndisponivelException ex)
 
 // Devolve
 emprestimo.RealizarDevolucao();
+
+Menu menu = new Menu();
+menu.Executar();
 
 
