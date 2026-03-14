@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Biblioteca.Domain/GerenciadorBiblioteca.Domain.csproj" />
+  <Project Path="Biblioteca/Biblioteca.csproj" Id="3a70a3d1-7fcc-46eb-9295-13d5cfb348bc" />
+</Solution>
