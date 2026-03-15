@@ -56,23 +56,64 @@ namespace Biblioteca
 
         private void ListarLivros()
         {
-            Console.WriteLine("");
+
+            if (_biblioteca.ListaDeLivros.Count == 0)
+                {
+                Console.WriteLine("Nenhum livro cadastrado!");
+                return;
+                }
+
+           foreach (Livros livro in _biblioteca.ListaDeLivros)
+            { 
+
+                livro.MostrarDetalhes();
+                Console.WriteLine("-------------------");
+            }
         }
 
         private void RealizarDevolucao()
         {
-            Console.WriteLine("A");
+            Console.WriteLine("Digite o ISBN do livro:");
+            string isbn = Console.ReadLine();
+            Livros livro = _biblioteca.BuscarLivroPorISBN(isbn);
+
+            if (livro == null)
+            {
+                Console.WriteLine("Livro não encontrado!");
+                return;
+            }
+            livro.Devolver();
+            Console.WriteLine("Livro devolvido com sucesso!");
+
         }
 
         private void RealizarEmprestimo()
         {
+            
             Console.WriteLine("Digite o ISBN do livro:");
+            string isbn = Console.ReadLine();
+            Livros livro = _biblioteca.BuscarLivroPorISBN(isbn);
+            if (livro == null)
+            {
+                Console.WriteLine("Livro não encontrado!");
+                return;
+            }
 
 
+            Console.WriteLine("Digite seu CPF");
+            string cpf = Console.ReadLine();
+            Usuario usuario = _biblioteca.BuscarUsuarioPorCPF(cpf);
+            if (usuario == null)
+            {
+                Console.WriteLine("Usuario não encontrado!");
+                return;
+            }
+            Emprestimo emprestimo = new Emprestimo(livro, usuario);
+            emprestimo.RealizarEmprestimo();
         }
 
         private void CadastrarUsuario()
-        { 
+        {
             Console.WriteLine("Digite seu nome:");
             string nome = Console.ReadLine();
             Console.WriteLine("Digite seu email:");

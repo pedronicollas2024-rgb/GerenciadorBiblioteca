@@ -34,8 +34,17 @@ namespace GerenciadorBiblioteca.Domain.Entities
             }
             return null;
         }
+        public Usuario BuscarUsuarioPorCPF(String cpf)
+        {
+            foreach (Usuario usuario in Usuarios)
+            {
+                if (usuario.CPF == cpf)
+                    return usuario;
+            }
+            return null;
+        }
 
 
-
+            
     }
 }
